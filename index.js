@@ -260,32 +260,32 @@ export default class SwiperContainer extends Component {
 		return(
 			<Animated.View style={[styles.container, {marginLeft: this.state.containerOffset}]} {...this._panResponder.panHandlers}>
 				{this.state.cards.map((card, i) => {
-						if (this.state.activeX === i){
-							return (
-								<Animated.View key={i} style={[{marginRight: this.overlap * -1,zIndex: this.state.zIndex[0],width:this.cardWidth, opacity: this.state.opacityToFade,backgroundColor: 'blue',transform: [{scale: this.state.scaleToShrink}]}]} >
-									{card}
-								</Animated.View>
-							)			
+					if (this.state.activeX === i){
+						return (
+							<Animated.View key={i} style={[{marginRight: this.overlap * -1,zIndex: this.state.zIndex[0],width:this.cardWidth, opacity: this.state.opacityToFade,backgroundColor: 'blue',transform: [{scale: this.state.scaleToShrink}]}]} >
+								{card}
+							</Animated.View>
+						)			
 
-						} else if (i === this.state.activeX + 1){
-							return (
-								<Animated.View key={i} style={[{marginRight: this.overlap * -1,zIndex: this.state.zIndex[1],width:this.cardWidth, opacity: this.state.opacityToAppearRight, transform: [{scale: this.state.scaleToGrowRight}]}]} >
-									{card}
-								</Animated.View>
-							)			
-						} else if (i === this.state.activeX - 1){
-							return (
-								<Animated.View key={i} style={[{marginRight: this.overlap *-1,zIndex: this.state.zIndex[2],width:this.cardWidth, opacity: this.state.opacityToAppearLeft, transform: [{scale: this.state.scaleToGrowLeft}]}]} >
-									{card}
-								</Animated.View>
-							)			
-						} else {
-							return (
-								<Animated.View key={i} style={[{marginRight: this.overlap *-1,zIndex: this.state.zIndex[3],width:this.cardWidth, opacity:this.minimumOpacity, transform: [{scale: this.minimumScale}]}]} >
-									{card}
-								</Animated.View>
-							)		
-						}
+					} else if (i === this.state.activeX + 1){
+						return (
+							<Animated.View key={i} style={[{marginRight: this.overlap * -1,zIndex: this.state.zIndex[1],width:this.cardWidth, opacity: this.state.opacityToAppearRight, transform: [{scale: this.state.scaleToGrowRight}]}]} >
+								{card}
+							</Animated.View>
+						)			
+					} else if (i === this.state.activeX - 1){
+						return (
+							<Animated.View key={i} style={[{marginRight: this.overlap *-1,zIndex: this.state.zIndex[2],width:this.cardWidth, opacity: this.state.opacityToAppearLeft, transform: [{scale: this.state.scaleToGrowLeft}]}]} >
+								{card}
+							</Animated.View>
+						)			
+					} else {
+						return (
+							<Animated.View key={i} style={[{marginRight: this.overlap *-1,zIndex: this.state.zIndex[3],width:this.cardWidth, opacity:this.minimumOpacity, transform: [{scale: this.minimumScale}]}]} >
+								{card}
+							</Animated.View>
+						)		
+					}
 				})}
 			</Animated.View>
 		)
