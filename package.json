@@ -1,0 +1,23 @@
+{
+  "name": "react-native-3d-swiper",
+  "version": "1.0.0",
+  "description": "A performant javascript only overlapping 3d swiper for react native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsdom/abab.git"
+  },
+  "keywords": [
+    "swiper",
+    "carousel",
+    "react-native",
+    "react",
+    "animated",
+    "animation"
+  ],
+  "author": "Bobby Hewitt <bobby@bobbyhewitt.co.uk>",
+  "license": "ISC"
+}
