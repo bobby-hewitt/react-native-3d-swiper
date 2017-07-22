@@ -101,6 +101,7 @@ export default class SwiperContainer extends Component {
 						this.state.opacityToAppearRight.setValue(1-valToSet*-1)
 						this.state.scaleToShrink.setValue(1-valToSet*-1)
 					}
+					
 				}
 	      	},
 		    onPanResponderTerminationRequest: (evt, gestureState) => true,
