@@ -1,6 +1,6 @@
 {
   "name": "react-native-3d-swiper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A performant javascript only overlapping 3d swiper for react native",
   "main": "index.js",
   "scripts": {

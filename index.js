@@ -7,10 +7,6 @@ import {
   Animated,
 } from 'react-native';
 import styles from './styles'
-import globalStyles from '../../styles/globalStyles'
-import SwipeCard from '../SwipeCard'
-import Test from '../Test'
-
 
 export default class SwiperContainer extends Component {
 
