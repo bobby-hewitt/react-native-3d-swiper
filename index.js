@@ -84,7 +84,7 @@ export default class SwiperContainer extends Component {
 			// handle touch responsiveness before final animation is called
 			else {
 					let valToSet = dx / 800
-					if (this.state.activeX !== 0 || this.state.activeX !== this.state.cards.length-1){
+					if (this.state.activeX !== 0 && this.state.activeX !== this.state.cards.length-1){
 						this.state.containerOffset.setValue(this.state.containerOffset._value + (dx / 80))
 					}
 					if (dx > 0){
