@@ -14,7 +14,7 @@ import RNSwiper from 'react-native-3d-swiper'
       minimumScale={0.7}  //scale of out of focus components
       minimumOpacity={0.9} // opacity of out of focus components
       overlap={60}  // the degree to which components overlap.  
-      margin={15} // the margin between the focus component and the edge of the container
+      cardWidth={400} // the width of each component
       duration={100} // animation duration on swipe
       swipeThreshold={100}// minimum distance to swipe to trigger change in state 
       >
