@@ -16,7 +16,8 @@ import RNSwiper from 'react-native-3d-swiper'
       overlap={60}  // the degree to which components overlap.  
       margin={15} // the margin between the focus component and the edge of the container
       duration={100} // animation duration on swipe
-      swipeThreshold={100}> // minimum distance to swipe to trigger change in state
+      swipeThreshold={100}// minimum distance to swipe to trigger change in state 
+      >
         <SwipeCard color="#ebebeb" text="Hellooooo"/> {/* Takes any component as child */}
         <SwipeCard color="#998877" text="Hellooooo"/>
         <SwipeCard color="#123abc" text="Hellooooo"/>
