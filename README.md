@@ -4,7 +4,7 @@ A javascript only perfromant, customisable 3d swiper for react-native.
 
 ## Getting Started
 
-```
+```JSX
 import RNSwiper from 'react-native-3d-swiper'
 
 <View
