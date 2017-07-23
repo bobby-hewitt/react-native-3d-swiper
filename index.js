@@ -17,6 +17,9 @@ export default class SwiperContainer extends Component {
 		margin: 15,
 		duration: 100,
 		swipeThreshold: 100,
+		onSwipeUp: ()=>{return},
+		onSwipeDown: ()=>{return},
+		onPress: ()=>{return},
    	};
 
 	constructor(props){
@@ -61,6 +64,15 @@ export default class SwiperContainer extends Component {
 	      onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
 	      onPanResponderMove: (evt, gestureState) => {
 	      	let dx = gestureState.dx
+	      	let dy = gestureState.dy
+
+	      	if (dy  *-1 > this.swipeThreshold){
+	      		this.props.onSwipeUp(this.state.activeX)
+	      	}
+	      	if (dy > this.swipeThreshold){
+	      		this.props.onSwipeDown(this.state.activeX)
+	      	}
+
 	      	//handle z index of cards so card becoming active always shows top
       		if (dx > 1 && this.state.zIndex !==[2,1,3,0]){
       			this.setState({zIndex: [2,1,3,0]})
@@ -88,7 +100,6 @@ export default class SwiperContainer extends Component {
 						this.state.containerOffset.setValue(this.state.containerOffset._value + (dx / 80))
 					}
 					if (dx > 0){
-						console.log('greater than 0')
 						this.state.opacityToAppearLeft.setValue(this.minimumOpacity+valToSet)
 						this.state.scaleToGrowLeft.setValue(this.minimumScale+valToSet)
 
@@ -106,6 +117,9 @@ export default class SwiperContainer extends Component {
 		    onPanResponderTerminationRequest: (evt, gestureState) => true,
 		    onPanResponderRelease: (evt, gestureState) => {
 		      	this.setState({swipeRegistered: false})
+		      	if (gestureState.dx === 0 && gestureState.dy === 0){
+		      		this.props.onPress(this.state.activeX)
+		      	}
 		    	//reset animation positions if threshold not reached
 		      	if (this.state.animationComplete){
 			      	if (this.state.zIndex !==[3,2,1,0]){
@@ -253,7 +267,6 @@ export default class SwiperContainer extends Component {
 	}
 
 	render(){
-				console.log(this.props.cardWidth)
 		return(
 			<Animated.View style={[styles.container, {marginLeft: this.state.containerOffset}]} {...this._panResponder.panHandlers}>
 				{this.state.cards.map((card, i) => {

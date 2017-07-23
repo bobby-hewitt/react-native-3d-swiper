@@ -9,6 +9,21 @@ A javascript only perfromant, customisable 3d swiper for react-native.
 ```JSX
 import RNSwiper from 'react-native-3d-swiper'
 
+onSwipeUp(index){
+  //parameter returned is the index of active child
+  console.log(index)
+}
+
+onSwipeDown(index){
+  //parameter returned is the index of active child
+  console.log(index)
+}
+
+onPress(index){
+  //parameter returned is the index of active child
+  console.log(index)
+}
+
 <View
  <RNSwiper
       minimumScale={0.7}  //scale of out of focus components
@@ -17,6 +32,9 @@ import RNSwiper from 'react-native-3d-swiper'
       cardWidth={400} // the width of each component
       duration={100} // animation duration on swipe
       swipeThreshold={100}// minimum distance to swipe to trigger change in state 
+      onSwipeUp={this.onSwipeUp}
+      onSwipeDown={this.onSwipeDown}
+      onPress={this.onPress}
       >
         <SwipeCard color="#ebebeb" text="Hellooooo"/> {/* Takes any component as child */}
         <SwipeCard color="#998877" text="Hellooooo"/>
