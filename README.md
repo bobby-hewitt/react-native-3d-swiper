@@ -1,6 +1,8 @@
 # react-native-3d-swiper
 
-A javascript only perfromant, customisable 3d swiper for react-native.  
+A javascript only perfromant, customisable 3d swiper for react-native. 
+
+![alt text](https://gfycat.com/gifs/detail/PaleWealthyArcherfish)
 
 ## Getting Started
 
