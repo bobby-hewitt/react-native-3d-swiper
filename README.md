@@ -9,8 +9,8 @@ import RNSwiper from 'react-native-3d-swiper'
 
 <View
  <RNSwiper
-      minimumScale:={0.7}  //scale of out of focus components
-      minimumOpacity{0.9} // opacity of out of focus components
+      minimumScale={0.7}  //scale of out of focus components
+      minimumOpacity={0.9} // opacity of out of focus components
       overlap={60}  // the degree to which components overlap.  
       margin={15} // the margin between the focus component and the edge of the container
       duration={100} // animation duration on swipe
