@@ -1,6 +1,6 @@
 # react-native-3d-swiper
 
-A javascript only perfromant, customisable 3d swiper for react-native. 
+A javascript only performant, customisable 3d swiper for react-native. 
 
 ![screenshot](https://user-images.githubusercontent.com/14819705/28497423-b7e9cfbc-6f7e-11e7-89fd-eb62f8cc6ff2.gif)
 
