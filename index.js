@@ -58,28 +58,28 @@ export default class SwiperContainer extends Component {
 		this.state.containerOffset.addListener(({value}) => this._value = value);
 
 		this._panResponder = PanResponder.create({
-	      onStartShouldSetPanResponder: (evt, gestureState) => true,
-	      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
-	      onMoveShouldSetPanResponder: (evt, gestureState) => true,
-	      onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
-	      onPanResponderMove: (evt, gestureState) => {
-	      	let dx = gestureState.dx
-	      	let dy = gestureState.dy
+		      onStartShouldSetPanResponder: (evt, gestureState) => true,
+		      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+		      onMoveShouldSetPanResponder: (evt, gestureState) => true,
+		      onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+		      onPanResponderMove: (evt, gestureState) => {
+			let dx = gestureState.dx
+			let dy = gestureState.dy
 
-	      	if (dy  *-1 > this.swipeThreshold){
-	      		this.props.onSwipeUp(this.state.activeX)
-	      	}
-	      	if (dy > this.swipeThreshold){
-	      		this.props.onSwipeDown(this.state.activeX)
-	      	}
+			if (dy  *-1 > this.swipeThreshold){
+				this.props.onSwipeUp(this.state.activeX)
+			}
+			if (dy > this.swipeThreshold){
+				this.props.onSwipeDown(this.state.activeX)
+			}
 
-	      	//handle z index of cards so card becoming active always shows top
-      		if (dx > 1 && this.state.zIndex !==[2,1,3,0]){
-      			this.setState({zIndex: [2,1,3,0]})
-      		} else if (dx < -1 && this.state.zIndex !==[2,3,1,0]){
- 			this.setState({zIndex: [2,3,1,0]})
-      		}
-      		//swipe right if swipeThreshold is reached
+			//handle z index of cards so card becoming active always shows top
+			if (dx > 1 && this.state.zIndex !==[2,1,3,0]){
+				this.setState({zIndex: [2,1,3,0]})
+			} else if (dx < -1 && this.state.zIndex !==[2,3,1,0]){
+				this.setState({zIndex: [2,3,1,0]})
+			}
+			//swipe right if swipeThreshold is reached
 			if (gestureState.dx > this.swipeThreshold && ((this.state.activeX > 0) || (this.state.activeX > 1 && !animationComplete))){
 				if (!this.state.swipeRegistered){
 					this.setState({swipeRegistered: true, swipeDirection: 'right', animationComplete: false})
@@ -113,19 +113,19 @@ export default class SwiperContainer extends Component {
 						this.state.scaleToShrink.setValue(1-valToSet*-1)
 					}
 				}
-	      	},
-		    onPanResponderTerminationRequest: (evt, gestureState) => true,
-		    onPanResponderRelease: (evt, gestureState) => {
-		      	this.setState({swipeRegistered: false})
-		      	if (gestureState.dx === 0 && gestureState.dy === 0){
-		      		this.props.onPress(this.state.activeX)
-		      	}
-		    	//reset animation positions if threshold not reached
-		      	if (this.state.animationComplete){
-			      	if (this.state.zIndex !==[3,2,1,0]){
-			      		this.setState({zIndex: [3,2,1,0]})
-			      	}
-		      		Animated.parallel([
+	      		},
+			onPanResponderTerminationRequest: (evt, gestureState) => true,
+			onPanResponderRelease: (evt, gestureState) => {
+				this.setState({swipeRegistered: false})
+				if (gestureState.dx === 0 && gestureState.dy === 0){
+					this.props.onPress(this.state.activeX)
+				}
+				//reset animation positions if threshold not reached
+				if (this.state.animationComplete){
+					if (this.state.zIndex !==[3,2,1,0]){
+						this.setState({zIndex: [3,2,1,0]})
+					}
+					Animated.parallel([
 						Animated.timing(
 							this.state.containerOffset,
 						    {toValue:  -1* (this.state.activeX * (this.cardWidth + this.overlap * -1) - this.margin) ,
@@ -168,14 +168,14 @@ export default class SwiperContainer extends Component {
 						    duration: this.duration,
 							easing: Easing.easeInOut}
 					)], { useNativeDriver: true }).start()		
-		      	}
-		    },
-	     	onPanResponderTerminate: (evt, gestureState) => {
-	      		console.log('Pan responder has been terminated, check conflicts')
-	      	},
-		    onShouldBlockNativeResponder: (evt, gestureState) => {
-		        return true;
-		    },
+				}
+			},
+			onPanResponderTerminate: (evt, gestureState) => {
+				console.log('Pan responder has been terminated, check conflicts')
+			},
+			onShouldBlockNativeResponder: (evt, gestureState) => {
+				return true;
+			},
 	    }); 
 	}
 	swipeLeft(){
